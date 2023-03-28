@@ -1,0 +1,22 @@
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav {
+     flex-direction: column;
+     margin-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+     padding: 10px;
+     border-radius: 5px;
+     margin: 5px;
+     text-align: center;
+  }
+}
