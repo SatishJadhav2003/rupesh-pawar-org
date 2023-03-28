@@ -11,12 +11,12 @@ import { ContactComponent } from './contact/contact.component';
 import { MediaComponent } from './media/media.component';
 import { DonationComponent } from './donation/donation.component';
 import { OurworkComponent } from './ourwork/ourwork.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { IdprintComponent } from './idprint/idprint.component';
 import { FooterComponent } from './footer/footer.component';
 import { EmployeeLoginComponent } from './employee/employee-login/employee-login.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { EmployeeRegistrationComponent } from './employee/employee-registration/employee-registration.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +28,12 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
     MediaComponent,
     DonationComponent,
     OurworkComponent,
-    RegistrationComponent,
     IdprintComponent,
     FooterComponent,
     EmployeeLoginComponent,
     EmployeeDetailsComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    EmployeeRegistrationComponent
   ],
   imports: [
     BrowserModule,

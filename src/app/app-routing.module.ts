@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonationComponent } from './donation/donation.component';
+import { EmployeeLoginComponent } from './employee/employee-login/employee-login.component';
+import { EmployeeRegistrationComponent } from './employee/employee-registration/employee-registration.component';
 import { HomeComponent } from './home/home.component';
 import { IdprintComponent } from './idprint/idprint.component';
 import { MediaComponent } from './media/media.component';
 import { OurworkComponent } from './ourwork/ourwork.component';
-import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
@@ -36,8 +37,8 @@ const routes: Routes = [
     component: DonationComponent,
   },
   {
-    path: 'registration',
-    component: RegistrationComponent,
+    path: 'login',
+    component: EmployeeLoginComponent,
   },
   {
     path: 'idprint',
@@ -48,6 +49,12 @@ const routes: Routes = [
     path: 'our-work',
     component: OurworkComponent,
   },
+  {
+    path: 'my-registrations',
+    component: EmployeeRegistrationComponent,
+  },
+
+
 ];
 
 @NgModule({
