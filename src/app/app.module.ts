@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatGridListModule  } from "@angular/material/grid-list";
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +16,7 @@ import { IdprintComponent } from './idprint/idprint.component';
 import { FooterComponent } from './footer/footer.component';
 import { EmployeeLoginComponent } from './employee/employee-login/employee-login.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -35,16 +32,13 @@ import { EmployeeDetailsComponent } from './employee/employee-details/employee-d
     IdprintComponent,
     FooterComponent,
     EmployeeLoginComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatGridListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
