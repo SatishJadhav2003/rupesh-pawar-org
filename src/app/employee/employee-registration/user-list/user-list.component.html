@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="text-center mb-4">Members Details</h3>
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.mobile }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="text-center">
+        <button
+          class="btn btn-success mb-3"
+          type="button"
+          routerLink="/add-members"
+        >
+          Add new member
+        </button>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th scope="col" colspan="2">Recently added</th>
+            </tr>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of recentUser">
+              <td>{{ user.name}}</td>
+              <td>{{ user.mobile}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<h4>This section's data will change as per employee . Dynamic</h4>

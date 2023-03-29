@@ -6,11 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-areaExpand:boolean = false;
-  showMenu = false;
 
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
-  }
+  collapsed = true;
+
 }
 

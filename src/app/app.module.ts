@@ -17,6 +17,9 @@ import { EmployeeLoginComponent } from './employee/employee-login/employee-login
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { EmployeeRegistrationComponent } from './employee/employee-registration/employee-registration.component';
+import { FormsModule } from '@angular/forms';
+import { UserListComponent } from './employee/employee-registration/user-list/user-list.component';
+import { AddUserComponent } from './employee/employee-registration/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +36,15 @@ import { EmployeeRegistrationComponent } from './employee/employee-registration/
     EmployeeLoginComponent,
     EmployeeDetailsComponent,
     AdminLoginComponent,
-    EmployeeRegistrationComponent
+    EmployeeRegistrationComponent,
+    AddUserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

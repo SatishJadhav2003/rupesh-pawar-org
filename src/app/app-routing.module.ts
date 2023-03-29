@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonationComponent } from './donation/donation.component';
 import { EmployeeLoginComponent } from './employee/employee-login/employee-login.component';
+import { AddUserComponent } from './employee/employee-registration/add-user/add-user.component';
 import { EmployeeRegistrationComponent } from './employee/employee-registration/employee-registration.component';
 import { HomeComponent } from './home/home.component';
 import { IdprintComponent } from './idprint/idprint.component';
@@ -53,6 +54,10 @@ const routes: Routes = [
     path: 'my-registrations',
     component: EmployeeRegistrationComponent,
   },
+  {
+    path:'add-members',
+    component:AddUserComponent
+  }
 
 
 ];
