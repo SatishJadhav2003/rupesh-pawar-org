@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="margin-bottom: 1000px">
   <div class="row">
     <div class="col-md-8">
       <h3 class="text-center mb-4">Members Details</h3>
@@ -8,17 +8,23 @@
             <th scope="col">No.</th>
             <th scope="col">Name</th>
             <th scope="col">Mobile</th>
-            <th scope="col">Email</th>
             <th scope="col">Address</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of users; let i = index">
-            <td>{{ i + 1 }}</td>
+          <tr *ngFor="let user of members; let i = index">
+            <td>{{ i }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.mobile }}</td>
-            <td>{{ user.email }}</td>
             <td>{{ user.address }}</td>
+            <td>
+              <button class="btn btn-success mx-3" [routerLink]="[i]"
+              routerLinkActive="active" (click)="viewMemberDetail()" >
+                View Member
+              </button>
+              <button class="btn btn-danger">Remove</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -26,31 +32,45 @@
     <div class="col-md-4 mb-4">
       <div class="text-center">
         <button
-          class="btn btn-success mb-3"
+          class="btn btn-success mb-4"
           type="button"
-          routerLink="/add-members"
+          (click)="addNewMember()"
         >
           Add new member
         </button>
+      </div>
+      <div *ngIf="viewRecent">
         <table class="table table-bordered text-center">
           <thead>
             <tr>
-              <th scope="col" colspan="2">Recently added</th>
+              <th scope="col" colspan="3">Recently added</th>
             </tr>
             <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Mobile</th>
+              <th scope="col">Name</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of recentUser">
-              <td>{{ user.name}}</td>
-              <td>{{ user.mobile}}</td>
+            <tr *ngFor="let user of recentUser; let index=index">
+              <td>{{ user.name }}</td>
+              <td>{{ user.mobile }}</td>
+              <td>
+                <button class="btn btn-success" (click)="viewMemberDetail()" [routerLink]="[index]"
+                routerLinkActive="active" >
+                  View
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <div *ngIf="addNew">
+        <app-add-user (newItemEvent)="addNewM($event)"></app-add-user>
+      </div>
+      <div *ngIf="viewMember">
+        <app-view-user></app-view-user>
+      </div>
     </div>
   </div>
 </div>
-<h4>This section's data will change as per employee . Dynamic</h4>

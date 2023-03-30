@@ -1,89 +1,55 @@
-import { Component, Input } from '@angular/core';
-import { user } from 'src/app/shared/user.model';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { EmployeeService } from 'src/app/shared/employee.service';
+import { member } from 'src/app/shared/member.model';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent {
+export class UserListComponent implements OnDestroy {
+  addNew: boolean = false;
+  viewMember: boolean = false;
+  viewRecent: boolean = true;
 
+  members: member[] = [];
+  recentUser: member[] = [];
+  subscription!: Subscription;
 
-  users:user[] = [
-    {
-      'name':'satish jadhav',
-      'address':'khadakjamb',
-      'mobile':'8390613529',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'satish jadhav',
-      'address':'khadakjamb',
-      'mobile':'8390613529',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'satish Bhausaheb jadhav',
-      'address':'khadakjamb',
-      'mobile':'8390613529',
-      'email':'satishj@gmail.com'
-    },
-    {
-      'name':'satish jadhav',
-      'address':'khadakjamb ,Nashik',
-      'mobile':'8390613529',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'satish jadhav',
-      'address':'khadakjamb',
-      'mobile':'8390613529',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'shwta',
-      'address':'khadakjamb',
-      'mobile':'8390613529',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'mahesh',
-      'address':'khadakjamb',
-      'mobile':'8390613529',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'Bharat',
-      'address':'khadakjamb',
-      'mobile':'22422343433',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'ramdas',
-      'address':'khadakjamb',
-      'mobile':'323232323',
-      'email':'satishj@gmail.com'
-    },
-    {
-      'name':'sagar',
-      'address':'Nashik',
-      'mobile':'34354545646',
-      'email':'sagar@gmail.com'
-    },
-    {
-      'name':'Rajesh',
-      'address':'khadakjamb',
-      'mobile':'0987654321',
-      'email':'satishjadhav87@gmail.com'
-    },
-    {
-      'name':'ramesh',
-      'address':'khadakjamb',
-      'mobile':'1234567890',
-      'email':'satishjadhav87@gmail.com'
-    }
-  ]
+  constructor(private employeeService: EmployeeService) {}
 
-  recentUser:user[] = this.users.slice(1).slice(-5)
+  ngOnInit() {
+    this.subscription = this.employeeService.membersChanged.subscribe(
+      (members: member[]) => {
+        this.recentUser = this.employeeService.getRecentMembers();
+        this.members = members;
+      }
+    );
+    this.recentUser = this.employeeService.getRecentMembers();
+    this.members = this.employeeService.getMembers();
+  }
 
+  addNewMember() {
+    this.addNew = !this.addNew;
+    this.viewMember = false;
+    this.viewRecent = !this.addNew;
+  }
+
+  // calling from child
+  addNewM(value: boolean) {
+    this.addNew = value;
+    this.viewMember = false;
+    this.viewRecent = !this.addNew;
+  }
+
+  viewMemberDetail() {
+    this.viewMember = true;
+    this.addNew = false;
+    this.viewRecent = false;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

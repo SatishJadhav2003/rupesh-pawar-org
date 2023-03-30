@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { user } from 'src/app/shared/user.model';
 
 @Component({
   selector: 'app-employee-registration',

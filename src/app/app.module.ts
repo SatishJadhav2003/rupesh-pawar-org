@@ -20,6 +20,7 @@ import { EmployeeRegistrationComponent } from './employee/employee-registration/
 import { FormsModule } from '@angular/forms';
 import { UserListComponent } from './employee/employee-registration/user-list/user-list.component';
 import { AddUserComponent } from './employee/employee-registration/add-user/add-user.component';
+import { ViewUserComponent } from './employee/employee-registration/view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AddUserComponent } from './employee/employee-registration/add-user/add-
     AdminLoginComponent,
     EmployeeRegistrationComponent,
     AddUserComponent,
-    UserListComponent
+    UserListComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,
