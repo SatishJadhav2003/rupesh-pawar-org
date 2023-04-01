@@ -11,21 +11,21 @@ export class EmployeeService {
   constructor() {}
   members: member[] = [
     {
-      id: '0',
       name: 'satish jadhav',
       address: 'khadakjamb',
       mobile: '8390613529',
-      email: 'satishjadhav87@gmail.com',
-      dob: new Date('dd/mm/yyyy'),
+      gender:'male',
+      aadhar:'994134447191',
+      pan:'cgopj2347h',
       occupation: 'student',
     },
     {
-      id: '1',
       name: 'satish jadhav',
       address: 'khadakjamb',
       mobile: '8390613529',
-      email: 'satishjadhav87@gmail.com',
-      dob: new Date('dd/mm/yyyy'),
+      gender:'male',
+      aadhar:'994134447191',
+      pan:'cgopj2347h',
       occupation: 'student',
     },
   ];
@@ -42,6 +42,7 @@ export class EmployeeService {
 
   getMember(index:number)
   {
+    console.log(this.members[index]);
     return this.members[index];
   }
 

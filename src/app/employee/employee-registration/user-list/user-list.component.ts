@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from 'src/app/shared/employee.service';
 import { member } from 'src/app/shared/member.model';
@@ -12,12 +13,15 @@ export class UserListComponent implements OnDestroy {
   addNew: boolean = false;
   viewMember: boolean = false;
   viewRecent: boolean = true;
-
+  index!: number;
   members: member[] = [];
   recentUser: member[] = [];
   subscription!: Subscription;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private route: Router
+  ) {}
 
   ngOnInit() {
     this.subscription = this.employeeService.membersChanged.subscribe(
@@ -43,10 +47,11 @@ export class UserListComponent implements OnDestroy {
     this.viewRecent = !this.addNew;
   }
 
-  viewMemberDetail() {
+  viewMemberDetail(i: number) {
     this.viewMember = true;
     this.addNew = false;
     this.viewRecent = false;
+    this.index=i;
   }
 
   ngOnDestroy() {

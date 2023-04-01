@@ -20,7 +20,7 @@
             <td>{{ user.address }}</td>
             <td>
               <button class="btn btn-success mx-3" [routerLink]="[i]"
-              routerLinkActive="active" (click)="viewMemberDetail()" >
+              routerLinkActive="active" (click)="viewMemberDetail(i)" >
                 View Member
               </button>
               <button class="btn btn-danger">Remove</button>
@@ -52,12 +52,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of recentUser; let index=index">
+            <tr *ngFor="let user of recentUser; let i=index">
               <td>{{ user.name }}</td>
               <td>{{ user.mobile }}</td>
               <td>
-                <button class="btn btn-success" (click)="viewMemberDetail()" [routerLink]="[index]"
-                routerLinkActive="active" >
+                <button class="btn btn-success" (click)="viewMemberDetail(i)">
                   View
                 </button>
               </td>
@@ -69,7 +68,7 @@
         <app-add-user (newItemEvent)="addNewM($event)"></app-add-user>
       </div>
       <div *ngIf="viewMember">
-        <app-view-user></app-view-user>
+        <app-view-user [index]="index" ></app-view-user>
       </div>
     </div>
   </div>

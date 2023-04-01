@@ -1,19 +1,20 @@
 export class member {
-  public id:string;
   public name: string;
   public address: string;
   public mobile: string;
-  public email: string;
-  public dob:Date;
+  public gender: string;
+  public aadhar:string;
   public occupation:string;
+  public pan:string
 
-  constructor(id:string,name: string, address: string, mobile: string, email: string,occupation:string,dob:Date) {
-    this.id=id;
+  constructor(name: string, address: string, mobile: string, gender: string,occupation:string,aadhar:string,pan:string) {
+
     this.name = name;
     this.address = address;
     this.mobile = mobile;
-    this.email = email;
+    this.gender = gender;
     this.occupation=occupation;
-    this.dob=dob;
+    this.aadhar=aadhar;
+    this.pan=pan;
   }
 }

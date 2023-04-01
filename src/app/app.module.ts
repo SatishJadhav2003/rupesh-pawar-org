@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,9 @@ import { FormsModule } from '@angular/forms';
 import { UserListComponent } from './employee/employee-registration/user-list/user-list.component';
 import { AddUserComponent } from './employee/employee-registration/add-user/add-user.component';
 import { ViewUserComponent } from './employee/employee-registration/view-user/view-user.component';
-
+import { EmpSignupComponent } from './employee/emp-signup/emp-signup.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,15 +43,20 @@ import { ViewUserComponent } from './employee/employee-registration/view-user/vi
     EmployeeRegistrationComponent,
     AddUserComponent,
     UserListComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    EmpSignupComponent,
+    ActivitiesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide:LocationStrategy,useClass:HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,15 +29,15 @@
       />
     </div>
     <div class="form-group">
-      <label for="inputEmail">E-mail</label>
+      <label for="inputGender">Gender</label>
       <input
-        type="email"
+        type="gender"
         class="form-control"
-        id="email"
-        placeholder="Enter E-mail"
+        id="gender"
+        placeholder="Gender"
         ngModel
         required
-        name="email"
+        name="gender"
       />
     </div>
     <div class="form-group">
@@ -53,6 +53,30 @@
       />
     </div>
     <div class="form-group">
+      <label for="inputAadhar">Aadhar No</label>
+      <input
+        type="text"
+        class="form-control"
+        id="aadhar"
+        placeholder="Enter aadhar_no"
+        ngModel
+        required
+        name="aadhar"
+      />
+    </div>
+    <div class="form-group">
+      <label for="inputPan">Pan No</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pan"
+        placeholder="Enter Pan No"
+        ngModel
+        required
+        name="pan"
+      />
+    </div>
+    <!-- <div class="form-group">
       <label for="dob">Date of Birth:</label>
       <input
         type="date"
@@ -62,7 +86,7 @@
         id="dob"
         name="dateOfBirth"
       />
-    </div>
+    </div> -->
     <div class="form-group">
       <label for="inputAddress">Occupation</label>
       <input
@@ -75,7 +99,8 @@
         name="occupation"
       />
     </div>
-    <div class="form-group">
+      <!-- <input type="file" (change)="onFileSelected($event)"> -->
+    <!-- <div class="form-group">
       <label for="inputImg">Image</label>
       <input
         type="file"
@@ -86,7 +111,7 @@
         required
         name="img"
       />
-    </div>
+    </div> -->
 
     <button
       type="submit"
